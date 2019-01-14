@@ -1,0 +1,17 @@
+html {
+  background-color: $black;
+  font-size: 62.5%;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: $s-size;
+  line-height: 1.6;
+}
+
+h1 {
+  margin: 0;
+}
