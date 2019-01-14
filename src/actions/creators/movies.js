@@ -1,12 +1,11 @@
-import {  REQUEST_MOVIES_LIST,  RECIEVE_MOVIES_LIST } from '../types/movies'
+import {  REQUEST_MOVIES_LISTS,  RECIEVE_MOVIES_LISTS } from '../types/movies'
 
-export const requestMoviesList = (name) => ({
-  type:  REQUEST_MOVIES_LIST,
-  name
+export const requestMoviesLists = (lists) => ({
+  type:  REQUEST_MOVIES_LISTS,
+  lists
 })
 
-export const recieveMoviesList = (name, movies) => ({
-  type: RECIEVE_MOVIES_LIST,
-  name,
-  movies
+export const recieveMoviesLists = (lists) => ({
+  type: RECIEVE_MOVIES_LISTS,
+  lists
 })
