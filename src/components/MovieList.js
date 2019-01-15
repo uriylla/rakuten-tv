@@ -1,7 +1,7 @@
 import React from 'react'
 import MovieThumbnail from './MovieThumbnail'
 import { connect } from 'react-redux'
-import { selectList } from '../selectors/movies'
+import { selectListById } from '../selectors/movies'
 import Slider from "react-slick";
 
 export class MovieList extends React.Component {
@@ -26,7 +26,7 @@ export class MovieList extends React.Component {
 }
 
 const mapStateToProps = (state, {id}) => ({
-  list: selectList(state.lists, id)
+  list: selectListById(state.lists, id)
 })
 
 export default connect(mapStateToProps)(MovieList)

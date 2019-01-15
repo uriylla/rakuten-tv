@@ -4,10 +4,20 @@ import { REQUEST_MOVIES_LISTS } from './actions/types/movies'
 import { recieveMoviesLists } from './actions/creators/movies'
 import { fetchLists } from './fetch'
 
+const processMovieData = ({id, images, highlighted_score}) => ({id, artwork_url: images.artwork, highlighted_score})
+
+const processListData = (data) => (
+  data.map(listData => (listData && {
+    name: listData.data.name,
+    id: listData.data.id,
+    movies: listData.data.contents.data.map(movie => processMovieData(movie))
+  }))
+)
+
 export function* getMoviesLists({ lists }) {
   try {
     const data = yield call(fetchLists, lists)
-    yield put(recieveMoviesLists(data))
+    yield put(recieveMoviesLists(processListData(data)))
   } catch (e) {
     console.log(e)
   }
