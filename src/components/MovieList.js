@@ -1,5 +1,6 @@
 import React from 'react'
 import MovieThumbnail from './MovieThumbnail'
+import {SliderArrowNext, SliderArrowPrev} from './SliderArrow'
 import { connect } from 'react-redux'
 import { selectListById } from '../selectors/movies'
 import Slider from "react-slick";
@@ -10,6 +11,8 @@ export class MovieList extends React.Component {
       draggable: false,
       infinite: false,
       speed: 1000,
+      prevArrow: <SliderArrowPrev />,
+      nextArrow: <SliderArrowNext />,
       slidesToShow: 6.5,
       slidesToScroll: 6
     }
@@ -17,7 +20,7 @@ export class MovieList extends React.Component {
     return (
       <div className="movie-list">
         <h1 className="movie-list__title">{list.name}</h1>
-        <Slider {...settings}>
+        <Slider {...settings} >
           {list.movies.map( movie => <MovieThumbnail key={movie.id} {...movie} /> )}
         </Slider>
       </div>
