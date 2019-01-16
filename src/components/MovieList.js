@@ -14,9 +14,16 @@ export class MovieList extends React.Component {
       speed: 1000,
       prevArrow: <SliderArrowPrev />,
       nextArrow: <SliderArrowNext />,
-      slidesToShow: 6.5,
-      slidesToScroll: 6,
+      slidesToShow: 7.3,
+      slidesToScroll: 7,
       responsive: [
+        {
+          breakpoint: 1400,
+          settings: {
+            slidesToShow: 6.5,
+            slidesToScroll: 6
+          }
+        },
         {
           breakpoint: 1140,
           settings: {
@@ -25,14 +32,21 @@ export class MovieList extends React.Component {
           }
         },
         {
-          breakpoint: 730,
+          breakpoint: 910,
           settings: {
-            slidesToShow: 2.5,
-            slidesToScroll: 2
+            slidesToShow: 4.5,
+            slidesToScroll: 4
           }
         },
         {
-          breakpoint: 320,
+          breakpoint: 730,
+          settings: {
+            slidesToShow: 3.5,
+            slidesToScroll: 3
+          }
+        },
+        {
+          breakpoint: 560,
           settings: {
             slidesToShow: 2.5,
             slidesToScroll: 2
@@ -40,20 +54,18 @@ export class MovieList extends React.Component {
         }
       ]
     }
-    const { list } = this.props
+    const { name, movies } = this.props
     return (
       <div className="movie-list">
-        <h1 className="movie-list__title">{list.name}</h1>
+        <h1 className="movie-list__title">{name}</h1>
         <Slider {...settings} >
-          {list.movies.map( movie => <MovieThumbnail key={movie.id} {...movie} /> )}
+          {movies.map( movie => <MovieThumbnail key={movie.id} {...movie} /> )}
         </Slider>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state, {id}) => ({
-  list: selectListById(state.lists, id)
-})
+const mapStateToProps = (state, {id}) => ({ ...selectListById(state.lists, id) })
 
 export default connect(mapStateToProps)(MovieList)
