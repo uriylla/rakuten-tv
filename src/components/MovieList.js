@@ -6,6 +6,7 @@ import { selectListById } from '../selectors/movies'
 import Slider from "react-slick";
 
 export class MovieList extends React.Component {
+
   render () {
     const settings = {
       draggable: false,
@@ -14,7 +15,30 @@ export class MovieList extends React.Component {
       prevArrow: <SliderArrowPrev />,
       nextArrow: <SliderArrowNext />,
       slidesToShow: 6.5,
-      slidesToScroll: 6
+      slidesToScroll: 6,
+      responsive: [
+        {
+          breakpoint: 1140,
+          settings: {
+            slidesToShow: 5.5,
+            slidesToScroll: 5
+          }
+        },
+        {
+          breakpoint: 730,
+          settings: {
+            slidesToShow: 2.5,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 320,
+          settings: {
+            slidesToShow: 2.5,
+            slidesToScroll: 2
+          }
+        }
+      ]
     }
     const { list } = this.props
     return (

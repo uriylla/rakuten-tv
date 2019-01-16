@@ -1,6 +1,7 @@
 .movie {
+  padding: 5px;
   &__image {
-    height: 325px;
+    width: 100%;
     border-radius: 2px;
   }
 }
