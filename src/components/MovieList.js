@@ -7,49 +7,58 @@ import Slider from "react-slick";
 
 export class MovieList extends React.Component {
 
+  state = { activeSlide: 0 }
+
   render () {
+    const current = this.state.activeSlide
+    const total = this.props.movies.length
+    const prevActive = current > 0
+    const nextActive =  current < total - 4
+    console.log({prevActive, nextActive, current, total})
     const settings = {
       draggable: false,
       infinite: false,
       speed: 1000,
-      prevArrow: <SliderArrowPrev />,
+      prevArrow: prevActive ? <SliderArrowPrev /> : undefined,
       nextArrow: <SliderArrowNext />,
       slidesToShow: 7.3,
-      slidesToScroll: 7,
+      slidesToScroll: 5,
+      lazyLoad: true,
+      afterChange: (index) => this.setState({activeSlide: index}),
       responsive: [
         {
           breakpoint: 1400,
           settings: {
             slidesToShow: 6.5,
-            slidesToScroll: 6
+            slidesToScroll: 4
           }
         },
         {
           breakpoint: 1140,
           settings: {
             slidesToShow: 5.5,
-            slidesToScroll: 5
+            slidesToScroll: 3
           }
         },
         {
           breakpoint: 910,
           settings: {
             slidesToShow: 4.5,
-            slidesToScroll: 4
+            slidesToScroll: 3
           }
         },
         {
           breakpoint: 730,
           settings: {
             slidesToShow: 3.5,
-            slidesToScroll: 3
+            slidesToScroll: 2
           }
         },
         {
           breakpoint: 560,
           settings: {
             slidesToShow: 2.5,
-            slidesToScroll: 2
+            slidesToScroll: 1
           }
         }
       ]

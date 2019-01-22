@@ -1,10 +1,15 @@
 .movie-list {
   padding-top: $s-size;
+  .slick-list {
+    overflow: visible;
+    margin-left: 1.4rem;
+    margin-right: 1.8rem;
+  }
 }
 
 .movie-list__title {
   font-size: $font-size-small;
-  margin-bottom: 6px;
+  margin: $m-size;
 }
 
 @include md {
