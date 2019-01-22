@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:dev": "webpack",
-    "build:prod": "webpack -p --env production",
-    "dev-server": "webpack-dev-server",
+    "build:dev": "webpack --env development --colors --watch",
+    "build:prod": "webpack --env production",
     "start": "node server/server.js"
   },
   "author": "Oriol Ylla",
@@ -37,7 +36,6 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.2.1"
   }
 }

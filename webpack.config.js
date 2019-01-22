@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = (env) => {
   const isProduction = env === 'production';
@@ -24,12 +25,12 @@ module.exports = (env) => {
       }]
     },
     devtool: isProduction ? 'source-map' : 'inline-source-map',
-    mode: isProduction ? 'production' : 'development',
-    performance: { hints: false },
-    devServer: {
-      contentBase: path.join(__dirname, 'public'),
-      historyApiFallback: true,
-      publicPath: '/dist/'
-    }
+    mode: env,
+    plugins: [
+      new webpack.DefinePlugin({
+        'NODE_ENV': JSON.stringify(env)
+      })
+    ],
+    performance: { hints: false }
   }
 }
