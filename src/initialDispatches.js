@@ -2,5 +2,5 @@ import { requestMoviesLists, recieveMoviesLists } from './actions/creators/movie
 import settings from './settings'
 
 export default (store) => {
-    store.dispatch(recieveMoviesLists(settings.lists))
+    store.dispatch(requestMoviesLists(settings.lists))
 }
