@@ -14,7 +14,6 @@ export class MovieList extends React.Component {
     const total = this.props.movies.length
     const prevActive = current > 0
     const nextActive =  current < total - 4
-    console.log({prevActive, nextActive, current, total})
     const settings = {
       draggable: false,
       infinite: false,
@@ -23,7 +22,6 @@ export class MovieList extends React.Component {
       nextArrow: <SliderArrowNext />,
       slidesToShow: 7.3,
       slidesToScroll: 5,
-      lazyLoad: true,
       afterChange: (index) => this.setState({activeSlide: index}),
       responsive: [
         {

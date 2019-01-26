@@ -1,10 +1,10 @@
 import settings from './settings'
 import path from 'path'
 
-export const fetchList = async (name) => {
+export const fetchResource = async (type, name) => {
   try {
     const { API_BASE_URL, API_QUERY_PARAMS } = settings;
-    const url = API_BASE_URL + 'lists/' + name + API_QUERY_PARAMS
+    const url = API_BASE_URL + type + '/' + name + API_QUERY_PARAMS
     const response = await fetch(url)
     const data = await response.json()
     return data
@@ -14,5 +14,6 @@ export const fetchList = async (name) => {
 }
 
 export const fetchLists = (lists) => {
-  return Promise.all(lists.map(list => fetchList(list)))
+  return Promise.all(lists.map(list => fetchResource('lists', list)))
 }
+

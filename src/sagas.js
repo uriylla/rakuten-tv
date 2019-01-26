@@ -7,11 +7,13 @@ import { fetchLists } from './fetch'
 const processMovieData = ({id, images, highlighted_score}) => ({id, artwork_url: images.artwork, highlighted_score})
 
 const processListData = (data) => (
-  data.map(listData => (listData && {
-    name: listData.data.name,
-    id: listData.data.id,
-    movies: listData.data.contents.data.map(movie => processMovieData(movie))
-  }))
+  data
+    .filter(list => !!list.data)
+    .map(listData => (listData && {
+      name: listData.data.name,
+      id: listData.data.id,
+      movies: listData.data.contents.data.map(movie => processMovieData(movie))
+    }))
 )
 
 export function* getMoviesLists({ lists }) {
