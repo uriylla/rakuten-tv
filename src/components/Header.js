@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux';
+import { getSelectedMovieName } from '../selectors/movies'
 
-export default class Header extends React.Component {
+export class Header extends React.Component {
   render () {
     const { movie } = this.props;
     return (
@@ -10,3 +12,9 @@ export default class Header extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return { movie: getSelectedMovieName(state) } 
+}
+
+export default connect(mapStateToProps)(Header)

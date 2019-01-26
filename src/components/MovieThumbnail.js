@@ -1,13 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { selectMovie } from '../actions/creators/movies';
+import { withRouter } from 'react-router';
 
-export default class MovieThumbnail extends React.Component {
+export class MovieThumbnail extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.selectMovie = this.selectMovie.bind(this)
+  }
+
+  selectMovie () {
+    const { selectMovie, id, name, history} = this.props;
+    selectMovie(id, name)
+  }
+
   render () {
-    const { artwork_url, highlighted_score } = this.props
+    const { artwork_url, highlighted_score, name } = this.props
     const { formatted_amount_of_votes, score } = highlighted_score
     return (
       <div className="thumbnail">
         <div className="thumbnail__cover">
-          <div className="thumbnail__border"></div>
+          <div onClick={this.selectMovie} className="thumbnail__link"></div>
           <img className="thumbnail__image" src={artwork_url}/>
         </div>
         <div className="thumbnail__info">
@@ -28,3 +42,9 @@ export default class MovieThumbnail extends React.Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  selectMovie: (id, name) => dispatch(selectMovie(id, name))
+})
+
+export default connect(undefined, mapDispatchToProps)(MovieThumbnail)

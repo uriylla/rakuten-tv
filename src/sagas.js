@@ -4,7 +4,7 @@ import { REQUEST_MOVIES_LISTS } from './actions/types/movies'
 import { recieveMoviesLists } from './actions/creators/movies'
 import { fetchLists } from './fetch'
 
-const processMovieData = ({id, images, highlighted_score}) => ({id, artwork_url: images.artwork, highlighted_score})
+const processMovieData = ({id, title, images, highlighted_score}) => ({id, name: title, artwork_url: images.artwork, highlighted_score})
 
 const processListData = (data) => (
   data
