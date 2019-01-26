@@ -9,7 +9,7 @@ export default (state = {}, action) => {
         lists
       }
       break;
-    default: 
+    default:
       return state;
   }
 }

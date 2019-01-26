@@ -1,0 +1,11 @@
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background: $black;
+  width: 100%;
+  line-height: $headerHeight;
+  text-align: center;
+  border-bottom: 0.2rem solid rgba(255,255,255,.2);
+  height: $headerHeight;
+}
