@@ -9,13 +9,3 @@ export const recieveMoviesLists = (lists) => ({
   type: RECIEVE_MOVIES_LISTS,
   lists: lists
 })
-
-export const selectMovie = (id, name) => ({
-  type: SELECT_MOVIE,
-  id,
-  name
-})
-
-export const unselectMovie = () => ({
-  type: UNSELECT_MOVIE
-})

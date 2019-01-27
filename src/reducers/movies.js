@@ -8,21 +8,6 @@ export default (state = {}, action) => {
         ...state,
         lists
       }
-    case SELECT_MOVIE:
-      return {
-        ...state,
-        selectedMovie: {
-          id: action.id,
-          name: action.name
-        }
-      }
-      break;
-    case UNSELECT_MOVIE:
-      return {
-        ...state,
-        selectedMovie: undefined
-      }
-      break;
     default:
       return state;
   }
