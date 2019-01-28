@@ -1,5 +1,5 @@
 import React from 'react'
-import { fetchResource } from '../fetch'
+import { fetchTrailer } from '../fetch'
 
 export default function (WrappedComponent) {
   return class extends React.Component {
@@ -9,23 +9,23 @@ export default function (WrappedComponent) {
       this.state = {}
     };
 
-    getMovie() {
+    componentDidMount() {
+      this.getTrailer()
+    }
+
+    getTrailer() {
       const { id } = this.props
-      id && fetchResource('movies', id)
+      id && fetchTrailer(id)
         .then(
-          (movie) =>
+          (trailer) =>
             this.setState(
-              () => ({ movie: movie.data })
+              () => ({ trailer: trailer.data.stream_infos[0].url })
             )
         )
     }
 
-    componentDidMount() {
-      this.getMovie()
-    }
-
     render() {
-      return <WrappedComponent movie={this.state.movie} {...this.props} />
+      return <WrappedComponent trailer={this.state.trailer} {...this.props} />
     }
   };
 

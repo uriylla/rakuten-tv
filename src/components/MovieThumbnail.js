@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { selectMovie } from '../actions/creators/movies'
 import { withRouter } from 'react-router'
 
 export class MovieThumbnail extends React.Component {
@@ -43,8 +41,4 @@ export class MovieThumbnail extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  selectMovie: (id, name) => dispatch(selectMovie(id, name))
-})
-
-export default connect(undefined, mapDispatchToProps)(withRouter(MovieThumbnail))
+export default withRouter(MovieThumbnail)
