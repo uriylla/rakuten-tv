@@ -28,7 +28,9 @@ export class MoviePage extends React.Component {
             <p>TRAILER</p>
           </div>
         </div>
-        <div className="movie__info"></div>
+        <div className="movie__info">
+          <p className="movie__plot" >{movie.plot}</p>
+        </div>
       </div>
     )
   }
