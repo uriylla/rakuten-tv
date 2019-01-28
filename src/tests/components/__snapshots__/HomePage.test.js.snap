@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render homePage correctly with lists 1`] = `ShallowWrapper {}`;
+
+exports[`should render homePage correctly without lists 1`] = `ShallowWrapper {}`;
