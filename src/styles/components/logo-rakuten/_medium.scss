@@ -2,11 +2,10 @@
   cursor: pointer;
   height: 3rem;
   z-index: 2;
-  &--lg {
+  &--sm {
     display: none;
   }
-}
-
-@include md {
-	@import 'medium';
+  &--lg {
+    display: block;
+  }
 }
