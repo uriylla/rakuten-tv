@@ -1,4 +1,6 @@
 .header {
+  display: flex;
+  align-items: center;
   position: fixed;
   top: 0;
   z-index: 2;
@@ -8,4 +10,8 @@
   text-align: center;
   border-bottom: 0.2rem solid rgba(255,255,255,.2);
   height: $headerHeight;
+  &__title {
+    position: absolute;
+    width: 100%;
+  }
 }
