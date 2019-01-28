@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header correctly when the movie is not set 1`] = `ShallowWrapper {}`;
+
+exports[`should render Header correctly when the movie is set 1`] = `ShallowWrapper {}`;
