@@ -1,5 +1,5 @@
-module.exports = {
-  setupFiles: [
+{
+  "setupFiles": [
     "<rootDir>/src/tests/setupTests.js"
   ]
 }

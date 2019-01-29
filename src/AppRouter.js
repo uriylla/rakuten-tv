@@ -7,11 +7,13 @@ import TrailerPage from './components/TrailerPage'
 import Header from './components/Header'
 import withMovie from './helpers/withMovie'
 import withTrailer from './helpers/withTrailer'
+import { fetchResource, fetchTrailer } from './fetch'
+
 
 export const history = createHistory()
 
-const MoviePageContainer = withMovie(MoviePage)
-const TrailerPageContainer = withTrailer(TrailerPage)
+const MoviePageContainer = withMovie(MoviePage, (id) => fetchResource('movies', id))
+const TrailerPageContainer = withTrailer(TrailerPage, fetchTrailer)
 
 const AppRouter = () => (
   <Router history={history}>

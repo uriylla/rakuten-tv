@@ -23,7 +23,7 @@ const sampleTrailer = {
         "player": "web:DASH-NONE",
         "display_aspect_ratio": "1.777777777777778",
         "cdn": "VERIZOBS",
-        "url": "https://prod-kami.wuaki.tv/v1/delivery/dash/315a8b17-03e9-4603-97ff-9f6d8c7e1aca.mpd",
+        "url": "https://prod-kami.wuaki.tv/v1/delivery/dash/61fc4152-2db5-4107-9cd4-c42ca589a86e.mpd",
         "wrid": "315a8b17-03e9-4603-97ff-9f6d8c7e1aca",
         "video_quality": "FHD"
       }

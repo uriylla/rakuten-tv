@@ -1,7 +1,6 @@
 import React from 'react'
-import { fetchTrailer } from '../fetch'
 
-export default function (WrappedComponent) {
+export default function (WrappedComponent, fetchTrailer) {
   return class extends React.Component {
 
     constructor(props) {

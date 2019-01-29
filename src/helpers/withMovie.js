@@ -1,7 +1,6 @@
 import React from 'react'
-import { fetchResource } from '../fetch'
 
-export default function (WrappedComponent) {
+export default function (WrappedComponent, fetchMovie) {
   return class extends React.Component {
 
     constructor(props) {
@@ -11,12 +10,13 @@ export default function (WrappedComponent) {
 
     getMovie() {
       const { id } = this.props
-      id && fetchResource('movies', id)
+      id && fetchMovie(id)
         .then(
-          (movie) =>
+          (movie) => {
             this.setState(
               () => ({ movie: movie.data })
-            )
+            ) 
+          }
         )
     }
 
